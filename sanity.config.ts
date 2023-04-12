@@ -1,5 +1,6 @@
 import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
+import { visionTool } from "@sanity/vision";
 import schemas from "./sanity/schemas";
 
 const config = defineConfig({
@@ -8,8 +9,8 @@ const config = defineConfig({
   title: "Meloish",
   apiVersion: "2023-04-10",
   basePath: "/admin",
-  plugins: [deskTool()],
-  shcema: { types: schemas },
+  plugins: [deskTool(), visionTool()],
+  schema: { types: schemas },
 });
 
 export default config;

@@ -1,5 +1,5 @@
-import project from "./project-schema";
+import landingpage from "./landing-page-schema";
 
-const schemas = [project];
+const schemas = [landingpage];
 
 export default schemas;
