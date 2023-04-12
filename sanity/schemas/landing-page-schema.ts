@@ -20,8 +20,8 @@ const LandingPage = {
       options: { source: "heading" },
     },
     {
-      title: "image",
-      name: "Image",
+      title: "Image",
+      name: "image",
       type: "image",
       options: { hotspot: true },
       fields: [{ name: "alt", title: "alt", type: "string" }],

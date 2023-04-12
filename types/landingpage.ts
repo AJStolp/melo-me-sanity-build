@@ -5,4 +5,5 @@ export type landingpage = {
   _createdAt: Date;
   slug: string;
   url: string;
+  alt: string;
 };
