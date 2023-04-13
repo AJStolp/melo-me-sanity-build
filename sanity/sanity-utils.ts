@@ -1,5 +1,6 @@
 import { createClient, groq } from "next-sanity";
 import { landingpage } from "@/types/landingpage";
+import { navigation } from "@/types/navigation";
 import clientConfig from "./client-config";
 
 export async function getLandingPage(): Promise<landingpage[]> {
@@ -12,5 +13,14 @@ export async function getLandingPage(): Promise<landingpage[]> {
       url,
       content,
       alt,
+  }`);
+}
+
+export async function getNavigation(): Promise<navigation[]> {
+  return createClient(clientConfig).fetch(groq`*[_type == "navigation"] {
+    _id,
+    _createdAt,
+    linkname,
+    'slug': slug.current,
   }`);
 }
