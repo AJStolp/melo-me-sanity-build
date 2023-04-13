@@ -1,4 +1,4 @@
-export type landingpage = {
+export type hero = {
   _id: string;
   _createdAt: Date;
   heading: string;

@@ -12,7 +12,7 @@ const Navigation = {
       name: "slug",
       title: "Slug",
       type: "slug",
-      options: { source: "navigation" },
+      options: { source: "linkname" },
     },
   ],
 };

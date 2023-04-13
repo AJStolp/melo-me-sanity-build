@@ -1,10 +1,10 @@
 import { createClient, groq } from "next-sanity";
-import { landingpage } from "@/types/landingpage";
+import { hero } from "@/types/hero";
 import { navigation } from "@/types/navigation";
 import clientConfig from "./client-config";
 
-export async function getLandingPage(): Promise<landingpage[]> {
-  return createClient(clientConfig).fetch(groq`*[_type == "landingpage"]{
+export async function getHero(): Promise<hero[]> {
+  return createClient(clientConfig).fetch(groq`*[_type == "hero"]{
       _id,
       _createdAt,
       heading,

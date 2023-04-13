@@ -1,21 +1,12 @@
-import Image from "next/image";
-import { getLandingPage } from "@/sanity/sanity-utils";
+import { getHero } from "@/sanity/sanity-utils";
+import Hero from "./components/hero/hero";
 
 export default async function Home() {
-  const landingpage = await getLandingPage();
+  const hero = await getHero();
 
   return (
-    <>
-      {landingpage.map((val) => {
-        return (
-          <div key={val._id}>
-            <h1>{val.heading}</h1>
-            {val.image && (
-              <Image src={val.image} alt={val.alt} width={500} height={500} />
-            )}
-          </div>
-        );
-      })}
-    </>
+    <div className="flex min-h-screen flex-col items-center justify-between p-24">
+      <Hero data={hero} />
+    </div>
   );
 }
