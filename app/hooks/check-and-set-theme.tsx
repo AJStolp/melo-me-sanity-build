@@ -23,6 +23,7 @@ export function useToggleTheme(): IToggleTheme {
   const [isDarkMode, setIsDarkMode] = useState(getInitialIsDarkMode());
 
   useEffect(() => {
+    console.log("isDarkMode changed:", isDarkMode);
     if (isDarkMode) {
       document.documentElement.classList.add("dark");
     } else {
@@ -36,8 +37,10 @@ export function useToggleTheme(): IToggleTheme {
   useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleChange = (event: MediaQueryListEvent) => {
+      console.log("Media query changed:", event.matches);
       setIsDarkMode(event.matches);
     };
+
     mediaQuery.addEventListener("change", handleChange);
     return () => {
       mediaQuery.removeEventListener("change", handleChange);

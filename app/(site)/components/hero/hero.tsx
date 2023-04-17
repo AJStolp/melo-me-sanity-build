@@ -10,16 +10,16 @@ export default function Home(props: IHero) {
     <>
       {props.data.map((val) => {
         return (
-          <div key={val._id}>
+          <div key={val._id} className="h-full w-full">
             <h1>{val.heading}</h1>
             {val.image && (
               <Image
                 priority
                 src={val.image}
-                alt={val.alt}
-                width={500}
-                height={500}
-                style={{ width: "auto" }}
+                alt={val.heading}
+                height={1000}
+                width={1200}
+                style={{ width: "auto", height: "auto" }}
               />
             )}
           </div>
