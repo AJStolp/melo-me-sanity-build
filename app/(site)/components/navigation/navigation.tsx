@@ -11,15 +11,15 @@ interface INavigationProps {
 
 const nunitoFont = Nunito({ subsets: ["latin"] });
 
-const navStyles = `z-10 top-0 right-0 bottom-0 left-0 absolute text-white text-2xl font-bold ${nunitoFont.className}`;
+const navStyles = `z-10 top-0 right-0 bottom-0 left-0 text-white text-2xl font-bold ${nunitoFont.className}`;
 
 export default function Navigation(props: INavigationProps) {
   const [toggledNavigation, setToggledNavigation] = useState(Boolean);
 
   return (
-    <div aria-label="Main menu" role="region">
+    <div aria-label="Main menu" role="region" className="container mx-auto p-4">
       <nav className={navStyles}>
-        <div className="flex flex-wrap items-center justify-between mx-auto p-4">
+        <div className="flex flex-wrap items-center justify-between mx-auto">
           <Link href="/" className="flex items-center text-2xl">
             Meloish
           </Link>

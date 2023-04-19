@@ -6,4 +6,5 @@ export type hero = {
   slug: string;
   url: string;
   alt: string;
+  cta: string;
 };

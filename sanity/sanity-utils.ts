@@ -11,8 +11,9 @@ export async function getHero(): Promise<hero[]> {
       "slug": slug.current,
       "image": image.asset->url,
       url,
-      content,
+      description,
       alt,
+      cta
   }`);
 }
 
