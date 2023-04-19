@@ -1,15 +1,10 @@
 import { createClient, groq } from "next-sanity";
-import { landingpage } from "@/types/landingpage";
+import { hero } from "@/types/hero";
+import { navigation } from "@/types/navigation";
+import clientConfig from "./client-config";
 
-export async function getLandingPage(): Promise<landingpage[]> {
-  const client = createClient({
-    projectId: "5d6920vu",
-    dataset: "production",
-    apiVersion: "2023-04-10",
-    useCdn: true,
-  });
-
-  return client.fetch(groq`*[_type == "landingpage"]{
+export async function getHero(): Promise<hero[]> {
+  return createClient(clientConfig).fetch(groq`*[_type == "hero"]{
       _id,
       _createdAt,
       heading,
@@ -18,5 +13,14 @@ export async function getLandingPage(): Promise<landingpage[]> {
       url,
       content,
       alt,
+  }`);
+}
+
+export async function getNavigation(): Promise<navigation[]> {
+  return createClient(clientConfig).fetch(groq`*[_type == "navigation"] {
+    _id,
+    _createdAt,
+    linkname,
+    'slug': slug.current,
   }`);
 }

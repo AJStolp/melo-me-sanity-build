@@ -1,5 +1,6 @@
-import landingpage from "./landing-page-schema";
+import hero from "./hero-schema";
+import navigationschema from "./navigation-schema";
 
-const schemas = [landingpage];
+const schemas = [hero, navigationschema];
 
 export default schemas;

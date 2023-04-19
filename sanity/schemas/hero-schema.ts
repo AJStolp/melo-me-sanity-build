@@ -1,6 +1,6 @@
-const LandingPage = {
-  name: "landingpage",
-  title: "Landing Page",
+const Hero = {
+  name: "hero",
+  title: "Hero",
   type: "document",
   fields: [
     {
@@ -28,4 +28,4 @@ const LandingPage = {
     },
   ],
 };
-export default LandingPage;
+export default Hero;
