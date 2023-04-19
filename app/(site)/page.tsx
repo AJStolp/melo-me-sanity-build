@@ -7,7 +7,7 @@ export default async function Home() {
   return (
     <>
       <Hero data={hero} />
-      <div>I am the new div</div>
+      {/* <div>I am the new div</div> */}
     </>
   );
 }

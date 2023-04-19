@@ -17,7 +17,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="h-full">
-      <body className="p-8">
+      <body className="relative">
         <Navigation data={navigationData} />
         <main className="">{children}</main>
       </body>

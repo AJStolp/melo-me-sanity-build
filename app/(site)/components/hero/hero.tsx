@@ -10,18 +10,25 @@ export default function Home(props: IHero) {
     <>
       {props.data.map((val) => {
         return (
-          <div key={val._id} className="h-full w-full">
-            <h1>{val.heading}</h1>
-            {val.image && (
+          <div
+            key={val._id}
+            // className="main-hero"
+            className="bg-no-repeat bg-cover w-auto aspect-auto min-h-screen object-cover main-hero bg-center"
+            style={{
+              backgroundImage: `url(${val.image})`,
+            }}
+          >
+            {/* {val.image && (
               <Image
                 priority
                 src={val.image}
                 alt={val.heading}
-                height={1000}
-                width={1200}
-                style={{ width: "auto", height: "auto" }}
+                fill
+                // style={{ width: "auto", height: "auto" }}
+                className="bg-transparent"
               />
-            )}
+            )} */}
+            <h1>{val.heading}</h1>
           </div>
         );
       })}
