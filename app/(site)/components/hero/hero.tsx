@@ -1,5 +1,6 @@
 import { hero } from "@/types/hero";
 import { Dongle } from "next/font/google";
+import Image from "next/image";
 
 interface IHero {
   data: hero[];
@@ -13,15 +14,18 @@ export default function Home(props: IHero) {
     <>
       {props.data.map((val) => {
         return (
-          <div
-            key={val._id}
-            // className="main-hero"
-            className="bg-no-repeat bg-cover w-auto aspect-auto min-h-screen object-cover main-hero bg-center text-nunito container mx-auto p-4"
-            style={{
-              backgroundImage: `url(${val.image})`,
-            }}
-          >
-            <section>
+          <div key={val._id}>
+            {val.image && (
+              <Image
+                fill
+                className="relative -top-[50px] homepage-hero-image"
+                src={val.image}
+                alt={"trimming cannabis"}
+                priority
+                key={val._id}
+              />
+            )}
+            <section key={val._id}>
               {" "}
               <h1 className="text-4xl text-white">{val.heading}</h1>
               <button className={ctaStyles}>{val.cta}</button>
