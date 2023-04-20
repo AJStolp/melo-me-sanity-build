@@ -14,18 +14,30 @@ export default function Home(props: IHero) {
     <>
       {props.data.map((val) => {
         return (
-          <div key={val._id}>
+          <div
+            key={val._id}
+            className="md:flex items-center md:container md:m-auto"
+          >
+            <section key={val._id} className="p-4 hidden md:block">
+              {" "}
+              <h1 className="text-4xl text-white">{val.heading}</h1>
+              <button className={ctaStyles}>{val.cta}</button>
+            </section>
             {val.image && (
               <Image
                 fill
-                className="relative -top-[50px] homepage-hero-image"
+                className="relative -top-[50px] homepage-hero-image -z-[10]"
                 src={val.image}
                 alt={"trimming cannabis"}
                 priority
                 key={val._id}
               />
             )}
-            <section key={val._id}>
+
+            <section
+              key={val._id}
+              className="p-4 relative -top-[78px] md:hidden"
+            >
               {" "}
               <h1 className="text-4xl text-white">{val.heading}</h1>
               <button className={ctaStyles}>{val.cta}</button>

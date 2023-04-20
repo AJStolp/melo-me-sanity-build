@@ -1,7 +1,6 @@
 import hero from "./hero-schema";
 import navigationschema from "./navigation-schema";
-import landingimage from "./landing-image-schema";
 
-const schemas = [hero, navigationschema, landingimage];
+const schemas = [hero, navigationschema];
 
 export default schemas;
