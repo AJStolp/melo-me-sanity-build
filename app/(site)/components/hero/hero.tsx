@@ -44,12 +44,8 @@ export default function Home(props: IHero) {
               </section>
             </section>
             {val.image && (
-              // relative -top-[80px] homepage-hero-image -z-[10] md:w-1/2 lg:h-50 xl:h-full xl:-top-[88px] xl:left-[31px]
-
-              // md:fixed md:left-auto md:top-0
               <Image
                 fill
-                // className="relative -top-[88px] homepage-hero-image -z-[10] md:w-1/2 lg:h-50 xl:h-full -top-[88px] xl:left-[31px]"
                 className="relative -top-[88px] homepage-hero-image -z-[10] md:fixed md:left-auto md:top-0 md:w-1/2 md:h-[45%] lg:h-auto"
                 src={val.image}
                 alt={"trimming cannabis"}
