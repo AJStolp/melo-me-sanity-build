@@ -32,7 +32,7 @@ export default function Navigation(props: INavigationProps) {
           >
             <span className="sr-only">Open main menu</span>
             <svg
-              className="w-6 h-6"
+              className="w-6 h-6 text-white"
               aria-hidden="true"
               fill="currentColor"
               viewBox="0 0 20 20"
@@ -52,7 +52,7 @@ export default function Navigation(props: INavigationProps) {
                   <li key={val._id}>
                     <Link
                       href={val.slug}
-                      className="hover:text-white hover:underline"
+                      className="hover:text-white hover:underline hover:text-[#499b4a]"
                     >
                       {val.linkname}
                     </Link>
