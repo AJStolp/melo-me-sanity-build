@@ -16,8 +16,8 @@ export default async function RootLayout({
   const navigationData = await getNavigation();
 
   return (
-    <html lang="en" className="h-full">
-      <body className="relative">
+    <html lang="en" className="">
+      <body className="">
         <Navigation data={navigationData} />
         <main className="">{children}</main>
       </body>

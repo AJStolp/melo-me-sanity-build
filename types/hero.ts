@@ -4,6 +4,7 @@ export type hero = {
   heading: string;
   image: string;
   slug: string;
-  url: string;
+  description: string;
   alt: string;
+  cta: string;
 };
