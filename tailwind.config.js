@@ -16,6 +16,9 @@ module.exports = {
       colors: {
         melo: "#63736c",
       },
+      screens: {
+        mdHero: "636px",
+      },
     },
   },
   plugins: [],

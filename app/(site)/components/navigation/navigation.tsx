@@ -3,7 +3,7 @@
 import { navigation } from "@/types/navigation";
 import Link from "next/link";
 import { Nunito } from "next/font/google";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 interface INavigationProps {
   data: navigation[];
@@ -11,15 +11,43 @@ interface INavigationProps {
 
 const nunitoFont = Nunito({ subsets: ["latin"] });
 
-const navStyles = `z-10 top-0 right-0 bottom-0 left-0 text-white text-2xl font-bold ${nunitoFont.className}`;
+const navStyles = `max-w-screen-xl m-auto z-10 top-0 right-0 bottom-0 left-0 text-white text-2xl font-bold ${nunitoFont.className}`;
 
 export default function Navigation(props: INavigationProps) {
   const [toggledNavigation, setToggledNavigation] = useState(Boolean);
 
+  const [scroll, setScroll] = useState(false);
+  useEffect(() => {
+    function handleScroll() {
+      if (window.scrollY > 0) {
+        setScroll(true);
+      } else {
+        setScroll(false);
+      }
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  const mainParentNav = "container mx-auto p-4 sticky top-0";
+
   return (
-    <div aria-label="Main menu" role="region" className="container mx-auto p-4">
+    <div
+      aria-label="Main menu"
+      role="region"
+      // className="container mx-auto p-4 sticky top-0"
+      className={
+        scroll
+          ? `mx-auto p-4 sticky top-0 bg-black bg-opacity-75 roundeds`
+          : `mx-auto p-4 sticky top-0`
+      }
+    >
       <nav className={navStyles}>
-        <div className="flex flex-wrap items-center justify-between mx-auto">
+        <div className="flex flex-wrap items-baseline justify-between mx-auto">
           <Link href="/" className="flex items-center text-2xl">
             Meloish
           </Link>
