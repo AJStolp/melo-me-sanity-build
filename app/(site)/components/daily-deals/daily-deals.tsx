@@ -9,7 +9,7 @@ export default function DailyDeals(props: IProps) {
     <>
       <div className="grid grid">
         {props.data.map((val) => {
-          return <div>{/* <h2>{val.day}</h2> */}</div>;
+          return <div key={val._id}>{/* <h2>{val.day}</h2> */}</div>;
         })}
       </div>
     </>

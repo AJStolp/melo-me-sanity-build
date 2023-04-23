@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <>
       <Hero data={hero} />
-      <section className="md:hidden">
+      <section className="grid grid-cols-1 md:grid-cols-2">
         <Accordion data={accordion} />
       </section>
     </>

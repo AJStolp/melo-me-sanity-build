@@ -3,7 +3,7 @@
 import { navigation } from "@/types/navigation";
 import Link from "next/link";
 import { Nunito } from "next/font/google";
-import { useEffect, useState } from "react";
+import useSetScroll from "@/app/hooks/set-scroll";
 
 interface INavigationProps {
   data: navigation[];
@@ -11,27 +11,10 @@ interface INavigationProps {
 
 const nunitoFont = Nunito({ subsets: ["latin"] });
 
-const navStyles = `max-w-screen-xl m-auto z-10 top-0 right-0 bottom-0 left-0 text-white text-2xl font-bold ${nunitoFont.className}`;
+const navStyles = `container m-auto z-10 top-0 right-0 bottom-0 left-0 text-white text-2xl font-bold ${nunitoFont.className}`;
 
 export default function Navigation(props: INavigationProps) {
-  const [toggledNavigation, setToggledNavigation] = useState(Boolean);
-
-  const [scroll, setScroll] = useState(false);
-  useEffect(() => {
-    function handleScroll() {
-      if (window.scrollY > 0) {
-        setScroll(true);
-      } else {
-        setScroll(false);
-      }
-    }
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const { scroll } = useSetScroll();
 
   return (
     <div
@@ -40,7 +23,7 @@ export default function Navigation(props: INavigationProps) {
       // className="container mx-auto p-4 sticky top-0"
       className={
         scroll
-          ? `mx-auto p-4 sticky top-0 bg-black bg-opacity-75 roundeds z-20`
+          ? `mx-auto p-4 sticky top-0 bg-black bg-opacity-75 rounded z-20`
           : `mx-auto p-4 sticky top-0 z-20`
       }
     >
@@ -71,11 +54,14 @@ export default function Navigation(props: INavigationProps) {
               ></path>
             </svg>
           </button>
-          <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+          <div
+            className="hidden bg-black bg-opacity-75 w-full md:bg-transparent rounded md:block md:w-auto"
+            id="navbar-default"
+          >
             <ul className="flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8">
               {props.data.map((val) => {
                 return (
-                  <li key={val._id}>
+                  <li key={val._id} className="my-2">
                     <Link
                       href={val.slug}
                       className="hover:text-white hover:underline hover:text-[#499b4a]"

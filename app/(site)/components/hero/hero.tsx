@@ -1,16 +1,18 @@
 import { hero } from "@/types/hero";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCannabis } from "@fortawesome/free-solid-svg-icons";
-import { Dongle } from "next/font/google";
+import { Lato, Karla, Nunito } from "next/font/google";
 import Image from "next/image";
 
 interface IHero {
   data: hero[];
 }
 
-const dongleFont = Dongle({ weight: ["700"], subsets: ["latin"] });
+const latoFont = Lato({ weight: ["900"], subsets: ["latin"] });
+const karlaFont = Karla({ weight: ["400"], subsets: ["latin"] });
+const nunitoFont = Nunito({ weight: ["700"], subsets: ["latin"] });
 
-const ctaStyles = `${dongleFont.className} text-xl rounded bg-melo py-2 px-2.5 text-white hover:underline hover:bg-transparent hover:text-white mdHero:mt-8`;
+const ctaStyles = `${nunitoFont.className} text-xl rounded bg-emerald-500 py-2 px-2.5 text-white hover:underline hover:bg-transparent hover:text-white mdHero:mt-8`;
 
 export default function Home(props: IHero) {
   return (
@@ -18,8 +20,10 @@ export default function Home(props: IHero) {
       {props.data.map((val) => {
         return (
           <div key={val._id} className="mdHero:flex md:m-auto pt-2 container">
-            <section className="p-4 hidden md:block md:w-1/2">
-              <h1 className="md:text-2xl lg:text-5xl text-white">
+            <section className="p-4 hidden md:block md:w-1/2m xl:p-2 lg: mt-8">
+              <h1
+                className={`md:text-2xl lg:text-5xl text-white ${latoFont.className}`}
+              >
                 {val.heading}
               </h1>
               <section className="flex flex-row gap-4 justify-center">
@@ -33,7 +37,11 @@ export default function Home(props: IHero) {
                   />
                 </section>
                 <section>
-                  <p className="text-xl text-white py-8">{val.description}</p>
+                  <p
+                    className={`text-xl text-white py-8 ${karlaFont.className}`}
+                  >
+                    {val.description}
+                  </p>
                 </section>
               </section>
               <section>
@@ -50,8 +58,12 @@ export default function Home(props: IHero) {
               />
             )}
             <section className="p-4 relative mdHero:top[0px] -top-[78px] md:hidden mdHero:w-1/2">
-              <h1 className="text-4xl text-white">{val.heading}</h1>
-              <p className="text-xl text-white py-8">{val.description}</p>
+              <h1 className={`text-4xl text-white ${latoFont.className}`}>
+                {val.heading}
+              </h1>
+              <p className={`text-xl text-white py-8 ${karlaFont.className}`}>
+                {val.description}
+              </p>
               <button className={ctaStyles}>{val.cta}</button>
             </section>
           </div>
