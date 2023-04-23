@@ -1,6 +1,7 @@
 import { getNavigation } from "@/sanity/sanity-utils";
 import "../globals.css";
 import Navigation from "./components/navigation/navigation";
+import Script from "next/script";
 
 export const metadata = {
   title: "My Awesome Demo",
@@ -20,6 +21,10 @@ export default async function RootLayout({
       <body className="">
         <Navigation data={navigationData} />
         <main className="">{children}</main>
+        <Script
+          strategy="beforeInteractive"
+          src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"
+        ></Script>
       </body>
     </html>
   );

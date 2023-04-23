@@ -3,6 +3,8 @@ import { hero } from "@/types/hero";
 import { navigation } from "@/types/navigation";
 import clientConfig from "./client-config";
 import { dailydeals } from "@/types/daily-deals";
+import { page } from "@/types/page";
+import { accordion } from "@/types/accordion";
 
 export async function getHero(): Promise<hero[]> {
   return createClient(clientConfig).fetch(groq`*[_type == "hero"]{
@@ -26,11 +28,46 @@ export async function getNavigation(): Promise<navigation[]> {
   }`);
 }
 
-export default function getDailyDeals(): Promise<dailydeals[]> {
+export async function getDailyDeals(): Promise<dailydeals[]> {
   return createClient(clientConfig).fetch(groq`*[_type == "dailydeals"] {
     _id,
     _createdAt,
     day,
     deal
+  }`);
+}
+
+export async function getPages(): Promise<page[]> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "page"] {
+    _id,
+    _createdAt,
+    'slug': slug.current,
+    content,
+    heading,
+    subheading,
+  }`
+  );
+}
+
+export async function getPage(slug: string): Promise<page> {
+  return createClient(clientConfig).fetch(
+    groq`*[_type == "page" && "navigation" && slug.current] {
+    _id,
+    _createdAt,
+    'slug': slug.current,
+    heading,
+    subheading,
+  }`,
+    { slug }
+  );
+}
+
+export async function getAccordion(): Promise<accordion[]> {
+  return createClient(clientConfig).fetch(groq`*[_type == 'accordion'] {
+    _id,
+    _createdAt,
+    heading,
+    content
   }`);
 }
