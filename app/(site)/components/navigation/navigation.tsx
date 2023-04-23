@@ -33,8 +33,6 @@ export default function Navigation(props: INavigationProps) {
     };
   }, []);
 
-  const mainParentNav = "container mx-auto p-4 sticky top-0";
-
   return (
     <div
       aria-label="Main menu"
@@ -42,14 +40,14 @@ export default function Navigation(props: INavigationProps) {
       // className="container mx-auto p-4 sticky top-0"
       className={
         scroll
-          ? `mx-auto p-4 sticky top-0 bg-black bg-opacity-75 roundeds`
-          : `mx-auto p-4 sticky top-0`
+          ? `mx-auto p-4 sticky top-0 bg-black bg-opacity-75 roundeds z-20`
+          : `mx-auto p-4 sticky top-0 z-20`
       }
     >
       <nav className={navStyles}>
         <div className="flex flex-wrap items-baseline justify-between mx-auto">
           <Link href="/" className="flex items-center text-2xl">
-            Meloish
+            Melo
           </Link>
           <button
             data-collapse-toggle="navbar-default"

@@ -4,6 +4,7 @@ import { navigation } from "@/types/navigation";
 import clientConfig from "./client-config";
 import { dailydeals } from "@/types/daily-deals";
 import { page } from "@/types/page";
+import { accordion } from "@/types/accordion";
 
 export async function getHero(): Promise<hero[]> {
   return createClient(clientConfig).fetch(groq`*[_type == "hero"]{
@@ -60,4 +61,13 @@ export async function getPage(slug: string): Promise<page> {
   }`,
     { slug }
   );
+}
+
+export async function getAccordion(): Promise<accordion[]> {
+  return createClient(clientConfig).fetch(groq`*[_type == 'accordion'] {
+    _id,
+    _createdAt,
+    heading,
+    content
+  }`);
 }

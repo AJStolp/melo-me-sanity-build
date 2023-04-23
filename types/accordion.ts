@@ -1,10 +1,8 @@
 import { PortableTextBlock } from "sanity";
 
-export type page = {
+export type accordion = {
   _id: string;
   _createdAt: Date;
-  slug: string;
   heading: string;
-  subheading: string;
-  content: PortableTextBlock;
+  content: PortableTextBlock[];
 };
