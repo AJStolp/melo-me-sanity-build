@@ -1,7 +1,8 @@
 import { getNavigation } from "@/sanity/sanity-utils";
 import "../globals.css";
-import Navigation from "./components/navigation/navigation";
+import Navigation from "@/app/(site)/components/navigation/navigation";
 import Script from "next/script";
+import Link from "next/link";
 
 export const metadata = {
   title: "My Awesome Demo",
@@ -19,7 +20,16 @@ export default async function RootLayout({
   return (
     <html lang="en" className="">
       <body className="">
-        <Navigation data={navigationData} />
+        {navigationData.map((val) => {
+          return (
+            <Link
+              key={val._id}
+              href={val.slug}
+              className="flex items-center text-2xl"
+            ></Link>
+          );
+        })}
+        {/* <Navigation data={navigationData} /> */}
         <main className="">{children}</main>
         <Script
           strategy="beforeInteractive"

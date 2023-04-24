@@ -52,13 +52,14 @@ export async function getPages(): Promise<page[]> {
 
 export async function getPage(slug: string): Promise<page> {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "page" && "navigation" && slug.current] {
+    groq`*[_type == "page" && slug.current == $slug][0] {
     _id,
     _createdAt,
     'slug': slug.current,
     heading,
     subheading,
-  }`,
+}
+`,
     { slug }
   );
 }
