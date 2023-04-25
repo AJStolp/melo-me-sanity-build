@@ -1,7 +1,8 @@
 import { getNavigation } from "@/sanity/sanity-utils";
 import "../globals.css";
-import Navigation from "./components/navigation/navigation";
+import Navigation from "@/app/(site)/components/navigation/navigation";
 import Script from "next/script";
+import Link from "next/link";
 
 export const metadata = {
   title: "My Awesome Demo",

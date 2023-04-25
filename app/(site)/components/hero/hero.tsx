@@ -12,7 +12,9 @@ const latoFont = Lato({ weight: ["900"], subsets: ["latin"] });
 const karlaFont = Karla({ weight: ["400"], subsets: ["latin"] });
 const nunitoFont = Nunito({ weight: ["700"], subsets: ["latin"] });
 
-const ctaStyles = `${nunitoFont.className} text-xl rounded bg-emerald-500 py-2 px-2.5 text-white hover:underline hover:bg-transparent hover:text-white mdHero:mt-8`;
+// const ctaStyles = `${nunitoFont.className} text-xl rounded bg-emerald-500 py-2 px-2.5 text-white hover:underline hover:bg-transparent hover:text-white mdHero:mt-8`;
+
+const ctaStyles = `${nunitoFont.className} text-white text-xl bg-gradient-to-r from-emerald-500 via-emerald-500 to-emerald-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2`;
 
 export default function Home(props: IHero) {
   return (
@@ -45,7 +47,9 @@ export default function Home(props: IHero) {
                 </section>
               </section>
               <section>
-                <button className={ctaStyles}>{val.cta}</button>
+                <button type="button" className={ctaStyles}>
+                  {val.cta}
+                </button>
               </section>
             </section>
             {val.image && (
