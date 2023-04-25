@@ -20,16 +20,7 @@ export default async function RootLayout({
   return (
     <html lang="en" className="">
       <body className="">
-        {navigationData.map((val) => {
-          return (
-            <Link
-              key={val._id}
-              href={val.slug}
-              className="flex items-center text-2xl"
-            ></Link>
-          );
-        })}
-        {/* <Navigation data={navigationData} /> */}
+        <Navigation data={navigationData} />
         <main className="">{children}</main>
         <Script
           strategy="beforeInteractive"

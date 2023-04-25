@@ -7,5 +7,5 @@ type IProps = {
 export default async function Page(props: IProps) {
   const page = await getPage(props.params.slug);
 
-  return <div className="text-white">{page.heading}</div>;
+  return <div className="text-white">{page?.heading}</div>;
 }

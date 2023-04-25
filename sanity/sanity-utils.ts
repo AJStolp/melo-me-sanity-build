@@ -2,9 +2,9 @@ import { createClient, groq } from "next-sanity";
 import { hero } from "@/types/hero";
 import { navigation } from "@/types/navigation";
 import clientConfig from "./client-config";
-import { dailydeals } from "@/types/daily-deals";
 import { page } from "@/types/page";
 import { accordion } from "@/types/accordion";
+import { table } from "@/types/table";
 
 export async function getHero(): Promise<hero[]> {
   return createClient(clientConfig).fetch(groq`*[_type == "hero"]{
@@ -25,15 +25,6 @@ export async function getNavigation(): Promise<navigation[]> {
     _createdAt,
     linkname,
     'slug': slug.current,
-  }`);
-}
-
-export async function getDailyDeals(): Promise<dailydeals[]> {
-  return createClient(clientConfig).fetch(groq`*[_type == "dailydeals"] {
-    _id,
-    _createdAt,
-    day,
-    deal
   }`);
 }
 
@@ -66,6 +57,16 @@ export async function getPage(slug: string): Promise<page> {
 
 export async function getAccordion(): Promise<accordion[]> {
   return createClient(clientConfig).fetch(groq`*[_type == 'accordion'] {
+    _id,
+    _createdAt,
+    heading,
+    content
+  }`);
+}
+
+export async function getTable(): Promise<table[]> {
+  return createClient(clientConfig)
+    .fetch(groq`*[_type == 'table'] | order(_createdAt desc) {
     _id,
     _createdAt,
     heading,
