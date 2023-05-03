@@ -5,6 +5,7 @@ import clientConfig from "./client-config";
 import { page } from "@/types/page";
 import { accordion } from "@/types/accordion";
 import { table } from "@/types/table";
+import { jumbotroncards } from "@/types/jumbotron-with-cards";
 
 export async function getHero(): Promise<hero[]> {
   return createClient(clientConfig).fetch(groq`*[_type == "hero"]{
@@ -71,5 +72,14 @@ export async function getTable(): Promise<table[]> {
     _createdAt,
     heading,
     content
+  }`);
+}
+
+export async function getJumbotron(): Promise<jumbotroncards[]> {
+  return createClient(clientConfig).fetch(groq`*[_type == 'jumbotron'] {
+      _id,
+      _createdAt,
+      heading,
+      content
   }`);
 }
