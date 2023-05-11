@@ -3,9 +3,7 @@ import { hero } from "@/types/hero";
 import { navigation } from "@/types/navigation";
 import clientConfig from "./client-config";
 import { page } from "@/types/page";
-import { accordion } from "@/types/accordion";
 import { table } from "@/types/table";
-import { jumbotroncards } from "@/types/jumbotron-with-cards";
 
 export async function getHero(): Promise<hero[]> {
   return createClient(clientConfig).fetch(groq`*[_type == "hero"]{
@@ -29,40 +27,17 @@ export async function getNavigation(): Promise<navigation[]> {
   }`);
 }
 
-export async function getPages(): Promise<page[]> {
+export async function getHome(): Promise<page[]> {
   return createClient(clientConfig).fetch(
-    groq`*[_type == "page"] {
+    groq`*[_type == "home"] {
     _id,
     _createdAt,
-    'slug': slug.current,
-    content,
     heading,
-    subheading,
+    copy,
+    cta,
+    "image": image.asset->url,
   }`
   );
-}
-
-export async function getPage(slug: string): Promise<page> {
-  return createClient(clientConfig).fetch(
-    groq`*[_type == "page" && slug.current == $slug][0] {
-    _id,
-    _createdAt,
-    'slug': slug.current,
-    heading,
-    subheading,
-}
-`,
-    { slug }
-  );
-}
-
-export async function getAccordion(): Promise<accordion[]> {
-  return createClient(clientConfig).fetch(groq`*[_type == 'accordion'] {
-    _id,
-    _createdAt,
-    heading,
-    content
-  }`);
 }
 
 export async function getTable(): Promise<table[]> {
@@ -72,14 +47,5 @@ export async function getTable(): Promise<table[]> {
     _createdAt,
     heading,
     content
-  }`);
-}
-
-export async function getJumbotron(): Promise<jumbotroncards[]> {
-  return createClient(clientConfig).fetch(groq`*[_type == 'jumbotron'] {
-      _id,
-      _createdAt,
-      heading,
-      content
   }`);
 }

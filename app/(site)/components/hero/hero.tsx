@@ -1,11 +1,11 @@
-import { hero } from "@/types/hero";
+import { home } from "@/types/home";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCannabis } from "@fortawesome/free-solid-svg-icons";
 import { Lato, Karla, Nunito } from "next/font/google";
 import Image from "next/image";
 
 interface IHero {
-  data: hero[];
+  data: home[];
 }
 
 const latoFont = Lato({ weight: ["900"], subsets: ["latin"] });
@@ -42,7 +42,7 @@ export default function Home(props: IHero) {
                   <p
                     className={`text-xl text-white py-8 ${karlaFont.className}`}
                   >
-                    {val.description}
+                    {val.copy}
                   </p>
                 </section>
               </section>
@@ -66,7 +66,7 @@ export default function Home(props: IHero) {
                 {val.heading}
               </h1>
               <p className={`text-xl text-white py-8 ${karlaFont.className}`}>
-                {val.description}
+                {val.copy}
               </p>
               <button className={ctaStyles}>{val.cta}</button>
             </section>
