@@ -1,6 +1,6 @@
-const Jumbotron = {
-  name: "jumbotron",
-  title: "Jumbotron",
+const Contact = {
+  name: "contact",
+  title: "Contact",
   type: "document",
   fields: [
     {
@@ -9,12 +9,12 @@ const Jumbotron = {
       type: "string",
     },
     {
-      name: "content",
-      title: "Content",
+      name: "copy",
+      title: "Copy",
       type: "array",
       of: [{ type: "block" }],
     },
   ],
 };
 
-export default Jumbotron;
+export default Contact;
