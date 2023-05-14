@@ -9,7 +9,10 @@ export default function Jumbotron(props: IProps) {
     <section className="bg-white dark:bg-gray-900">
       {props.data.map((val) => {
         return (
-          <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
+          <div
+            className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16"
+            key={val._id}
+          >
             <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
               <a
                 href="#"
