@@ -21,7 +21,10 @@ export default function Home(props: IHero) {
     <>
       {props.data.map((val) => {
         return (
-          <div key={val._id} className="mdHero:flex md:m-auto pt-2 container">
+          <div
+            key={val._id}
+            className="mdHero:flex md:m-auto pt-2 container container-max-width"
+          >
             <section className="p-4 hidden md:block md:w-1/2m xl:p-2 lg: mt-8">
               <h1
                 className={`md:text-2xl lg:text-5xl text-white ${latoFont.className}`}

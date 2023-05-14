@@ -1,6 +1,7 @@
 export const metadata = {
-  title: "",
-  description: "",
+  title: "Earn Rewards Page",
+  description:
+    "This is the page where you can learn about Melo's rewards program.",
 };
 
 export default async function EarnLayout({
@@ -8,9 +9,5 @@ export default async function EarnLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <>
-      <main className="">{children}</main>
-    </>
-  );
+  return <>{children}</>;
 }

@@ -11,7 +11,7 @@ interface INavigationProps {
 
 const nunitoFont = Nunito({ subsets: ["latin"] });
 
-const navStyles = `container m-auto z-10 top-0 right-0 bottom-0 left-0 text-white text-2xl font-bold ${nunitoFont.className}`;
+const navStyles = `container m-auto z-10 top-0 right-0 bottom-0 left-0 text-white text-2xl font-bold ${nunitoFont.className} container-max-width`;
 
 export default function Navigation(props: INavigationProps) {
   const { scroll } = useSetScroll();
@@ -23,8 +23,8 @@ export default function Navigation(props: INavigationProps) {
       // className="container mx-auto p-4 sticky top-0"
       className={
         scroll
-          ? `mx-auto p-4 sticky top-0 bg-black bg-opacity-75 rounded z-20`
-          : `mx-auto p-4 sticky top-0 z-20`
+          ? `mx-auto sticky top-0 bg-black bg-opacity-75 rounded z-20`
+          : `mx-auto sticky top-0 z-20`
       }
     >
       <nav className={navStyles}>

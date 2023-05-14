@@ -1,6 +1,7 @@
 export const metadata = {
-  title: "",
-  description: "",
+  title: "About Page",
+  description:
+    "Here, you can learn about the team and the dispensary as a whole.",
 };
 
 export default async function EarnLayout({

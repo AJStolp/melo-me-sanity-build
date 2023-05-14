@@ -16,16 +16,16 @@ body {
   margin: 0;
   padding: 0;
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(115deg, rgba(40, 40, 40, 1) 15%, rgba(1, 1, 1, 1) 50%, rgba(0, 0, 0, 1) 100%);
+  background: linear-gradient(90deg, rgba(40, 40, 40, 1) 15%, rgba(1, 1, 1, 1) 50%, rgba(0, 0, 0, 1) 100%);
 }
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   body {
       margin: 0;
       padding: 0;
       color: rgb(var(--foreground-rgb));
       background: linear-gradient(90deg, rgba(40, 40, 40, 1) 15%, rgba(1, 1, 1, 1) 50%, rgba(0, 0, 0, 1) 100%);
     }
-}
+} */
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -68,4 +68,14 @@ body {
 
 .open-body.show>ul {
   opacity: 1;
+}
+
+.container-max-width {
+  max-width: calc(100% - 40px);
+}
+
+@media screen and (min-width: 1025px) {
+  .container-max-width {
+      max-width: 1280px;
+    }
 }

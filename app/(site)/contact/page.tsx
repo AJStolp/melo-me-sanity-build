@@ -1,59 +1,78 @@
+import { getContact } from "@/sanity/sanity-utils";
+import { PortableText } from "@portabletext/react";
+
 export default async function Contact() {
-  // const page = await getPage();
+  const page = await getContact();
 
   return (
-    <div className="mt-8 container mx-auto">
-      {/* <label
-        htmlFor="large-input"
-        className="block mb-2 text-sm font-medium text-white dark:text-white"
-      >
-        Your Name
-      </label>
-      <input
-        type="text"
-        id="large-input"
-        className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      />
-      <label
-        htmlFor="large-input"
-        className="block mb-2 text-sm font-medium text-white dark:text-white"
-      >
-        Your Email
-      </label>
-      <input
-        type="text"
-        id="large-input"
-        className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-      />
-
+    <section className="container mx-auto pt-20 container-max-width">
+      {page.map((val) => {
+        return (
+          <>
+            <h1 className="text-6xl font-extrabold text-white">
+              {val.heading}
+            </h1>
+            <section className="my-8 text-white text-xl">
+              <PortableText value={val.copy} />
+            </section>
+          </>
+        );
+      })}
       <form>
-        <label htmlFor="chat" className="sr-only">
-          Your message
-        </label>
-        <div className="flex items-center px-3 py-2 rounded-lg bg-gray-50 dark:bg-gray-700">
-          <textarea
-            id="chat"
-            rows={1}
-            className="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Your message..."
-          ></textarea>
-          <button
-            type="submit"
-            className="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600"
-          >
-            <svg
-              aria-hidden="true"
-              className="w-6 h-6 rotate-90"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
+        <div className="grid gap-6 mb-6 md:grid-cols-2">
+          <div>
+            <label
+              htmlFor="first_name"
+              className="block mb-2 text-lg font-medium text-indigo-500 dark:text-white"
             >
-              <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path>
-            </svg>
-            <span className="sr-only">Send message</span>
-          </button>
+              First name
+            </label>
+            <input
+              type="text"
+              id="first_name"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="John"
+              required
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="last_name"
+              className="block mb-2 text-lg font-medium text-indigo-500 dark:text-white"
+            >
+              Last name
+            </label>
+            <input
+              type="text"
+              id="last_name"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Doe"
+              required
+            />
+          </div>
         </div>
-      </form> */}
-    </div>
+        <div className="mb-6">
+          <label
+            htmlFor="email"
+            className="block mb-2 text-lg font-medium text-indigo-500 dark:text-white"
+          >
+            Email address
+          </label>
+          <input
+            type="email"
+            id="email"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="john.doe@company.com"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          className="text-white text-xl bg-melo hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        >
+          Submit
+        </button>
+      </form>
+    </section>
   );
 }
