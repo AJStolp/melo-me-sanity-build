@@ -8,6 +8,7 @@ export type about = {
   image1: string;
   image2: string;
   image3: string;
+  image4: string;
   card1name: string;
   role1: string;
   description1: string;
@@ -17,4 +18,7 @@ export type about = {
   card3name: string;
   role3: string;
   description3: string;
+  card4name: string;
+  role4: string;
+  description4: string;
 };

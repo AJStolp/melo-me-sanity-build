@@ -70,7 +70,10 @@ export async function getAbout(): Promise<about[]> {
     _createdAt,
     heading,
     copy,
-    "image": image.asset->url,
+    "image1": image1.asset->url,
+    "image2": image2.asset->url,
+    "image3": image3.asset->url,
+    "image4": image4.asset->url,
     card1name,
     role1,
     description1,
@@ -80,6 +83,9 @@ export async function getAbout(): Promise<about[]> {
     card3name,
     role3,
     description3,
+    card4name,
+    role4,
+    description4,
   }`
   );
 }

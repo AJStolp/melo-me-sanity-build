@@ -1,5 +1,6 @@
 import { getAbout } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
+import Image from "next/image";
 
 export default async function About() {
   const about = await getAbout();
@@ -72,24 +73,18 @@ export default async function About() {
               </figure>
               <figure className="flex flex-col items-center justify-center p-8 text-center bg-white border-gray-200 rounded-b-lg md:rounded-br-lg dark:bg-gray-800 dark:border-gray-700">
                 <blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                    Efficient Collaborating
-                  </h3>
-                  <p className="my-4">
-                    You have many examples that can be used to create a fast
-                    prototype for your team.
-                  </p>
+                  <p className="my-4">{val.description4}</p>
                 </blockquote>
                 <figcaption className="flex items-center justify-center space-x-3">
                   <img
                     className="rounded-full w-9 h-9"
-                    src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/avatars/joseph-mcfall.png"
+                    src={val.image4}
                     alt="profile picture"
                   />
                   <div className="space-y-0.5 font-medium dark:text-white text-left">
-                    <div>Joseph McFall</div>
+                    <div>{val.card4name}</div>
                     <div className="text-sm text-gray-500 dark:text-gray-400">
-                      CTO at Google
+                      {val.role4}
                     </div>
                   </div>
                 </figcaption>

@@ -80,6 +80,28 @@ const About = {
       options: { hotspot: true },
       fields: [{ name: "alt", title: "alt", type: "string" }],
     },
+    {
+      name: "card4name",
+      title: "Card 4 Name",
+      type: "string",
+    },
+    {
+      name: "role4",
+      title: "role 4",
+      type: "string",
+    },
+    {
+      name: "description4",
+      title: "description 4",
+      type: "string",
+    },
+    {
+      name: "image4",
+      title: "Image 4",
+      type: "image",
+      options: { hotspot: true },
+      fields: [{ name: "alt", title: "alt", type: "string" }],
+    },
   ],
 };
 
