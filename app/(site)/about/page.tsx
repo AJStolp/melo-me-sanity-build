@@ -16,9 +16,9 @@ export default async function About() {
             <section className="text-slate-50 text-xl my-10">
               <PortableText value={val.copy} />
             </section>
-            <div className="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 md:grid-cols-2 container-max-width">
+            <div className="grid mb-8 border border-gray-200 rounded-lg shadow-sm dark:border-gray-700 md:mb-12 md:grid-cols-2 container-max-width mx-auto">
               <figure className="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 rounded-t-lg md:rounded-t-none md:rounded-tl-lg md:border-r dark:bg-gray-800 dark:border-gray-700">
-                <blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
+                <blockquote className="max-w-2xl mx-auto text-left mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
                   <p className="my-4">{val.description1}</p>
                 </blockquote>
                 <figcaption className="flex items-center justify-center space-x-3">
@@ -36,7 +36,7 @@ export default async function About() {
                 </figcaption>
               </figure>
               <figure className="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 rounded-tr-lg dark:bg-gray-800 dark:border-gray-700">
-                <blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
+                <blockquote className="max-w-2xl mx-auto mb-4 text-left text-gray-500 lg:mb-8 dark:text-gray-400">
                   <p className="my-4">{val.description2}</p>
                 </blockquote>
                 <figcaption className="flex items-center justify-center space-x-3">
@@ -54,7 +54,7 @@ export default async function About() {
                 </figcaption>
               </figure>
               <figure className="flex flex-col items-center justify-center p-8 text-center bg-white border-b border-gray-200 rounded-bl-lg md:border-b-0 md:border-r dark:bg-gray-800 dark:border-gray-700">
-                <blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
+                <blockquote className="max-w-2xl mx-auto mb-4 text-left text-gray-500 lg:mb-8 dark:text-gray-400">
                   <p className="my-4">{val.description3}</p>
                 </blockquote>
                 <figcaption className="flex items-center justify-center space-x-3">
@@ -72,7 +72,7 @@ export default async function About() {
                 </figcaption>
               </figure>
               <figure className="flex flex-col items-center justify-center p-8 text-center bg-white border-gray-200 rounded-b-lg md:rounded-br-lg dark:bg-gray-800 dark:border-gray-700">
-                <blockquote className="max-w-2xl mx-auto mb-4 text-gray-500 lg:mb-8 dark:text-gray-400">
+                <blockquote className="max-w-2xl mx-auto mb-4 text-left text-gray-500 lg:mb-8 dark:text-gray-400">
                   <p className="my-4">{val.description4}</p>
                 </blockquote>
                 <figcaption className="flex items-center justify-center space-x-3">
